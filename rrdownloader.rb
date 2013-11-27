@@ -15,6 +15,6 @@ page.links_with(text: /\d\d\d RR/).each do |link|
     logger.info 'Downloading ' + link.text + '...'
     following_page = link.click
     link_href = following_page.links_with(text: 'Download')[0].href
-    agent.get(link_href).save(ENV['RROGUES_HOME'] + link.text + '.mp3')
+    agent.get(link['href']).save(ENV['RROGUES_HOME'] + link.text + '.mp3')
   end
 end
